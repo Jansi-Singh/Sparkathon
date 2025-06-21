@@ -1,5 +1,5 @@
-
-import { Faq5, FaqItem } from "@/components/ui/faq-5";
+import { Faq5 } from "@/components/ui/faq-5";
+import type { FaqItem } from "@/components/ui/faq-5";
 import { Button } from "@/components/ui/button";
 
 const smartMartFaqs: FaqItem[] = [
@@ -31,11 +31,14 @@ const smartMartFaqs: FaqItem[] = [
 
 const FAQ = () => {
   return (
-    <section id="faq" className="py-24 bg-gray-950">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="faq" className="py-16 md:py-20 lg:py-24 bg-gray-950">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="relative">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 to-purple-500/5 rounded-2xl blur-xl"></div>
-          <div className="relative bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8">
+          {/* Background gradient */}
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-500/5 via-purple-500/5 to-blue-500/5 rounded-3xl blur-2xl"></div>
+          
+          {/* Main content container */}
+          <div className="relative bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-6 md:p-8 lg:p-12">
             <Faq5 
               badge="FAQ"
               heading="Frequently Asked Questions"
@@ -45,12 +48,15 @@ const FAQ = () => {
           </div>
         </div>
 
-        <div className="mt-12 text-center">
-          <p className="text-gray-400 mb-6 text-lg">Still have questions?</p>
+        {/* Contact support section */}
+        <div className="mt-10 md:mt-12 text-center">
+          <p className="text-gray-400 mb-6 text-base md:text-lg">
+            Still have questions? We're here to help!
+          </p>
           <Button 
             variant="outline" 
             size="lg"
-            className="border-gray-600 bg-transparent text-white hover:bg-gray-800 hover:border-gray-500 transition-all duration-200 px-8 py-3 h-auto font-medium"
+            className="border-gray-600 bg-transparent text-white hover:bg-gray-800 hover:border-gray-500 transition-all duration-200 px-8 py-3 h-auto font-medium text-sm md:text-base"
           >
             Contact Support
           </Button>

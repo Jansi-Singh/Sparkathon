@@ -1,5 +1,5 @@
-
 import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
+import type React from "react";
 
 import {
   Accordion,
@@ -24,27 +24,27 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-interface MenuItem {
+export interface MenuItem {
   title: string;
   url: string;
   description?: string;
-  icon?: JSX.Element;
+  icon?: React.ReactElement;
   items?: MenuItem[];
 }
 
-interface Navbar1Props {
-  logo?: {
+export interface Navbar1Props {
+  logo: {
     url: string;
     src: string;
     alt: string;
     title: string;
   };
-  menu?: MenuItem[];
-  mobileExtraLinks?: {
+  menu: MenuItem[];
+  mobileExtraLinks: {
     name: string;
-    url: string;
+    url:string;
   }[];
-  auth?: {
+  auth: {
     login: {
       text: string;
       url: string;
@@ -57,67 +57,10 @@ interface Navbar1Props {
 }
 
 const Navbar1 = ({
-  logo = {
-    url: "#",
-    src: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=32&h=32&fit=crop&crop=center",
-    alt: "SmartMart logo",
-    title: "SmartMart",
-  },
-  menu = [
-    { title: "Home", url: "#" },
-    {
-      title: "Features",
-      url: "#features",
-      items: [
-        {
-          title: "AI Shopping",
-          description: "Get personalized recommendations powered by AI",
-          icon: <Zap className="size-5 shrink-0" />,
-          url: "#features",
-        },
-        {
-          title: "Live Inventory",
-          description: "Real-time access to Walmart's product catalog",
-          icon: <Trees className="size-5 shrink-0" />,
-          url: "#features",
-        },
-        {
-          title: "Smart Chat",
-          description: "Chat with AI for seamless shopping assistance",
-          icon: <Book className="size-5 shrink-0" />,
-          url: "#features",
-        },
-        {
-          title: "Quick Pickup",
-          description: "In-store pickup and home delivery options",
-          icon: <Sunset className="size-5 shrink-0" />,
-          url: "#features",
-        },
-      ],
-    },
-    {
-      title: "How it Works",
-      url: "#how-it-works",
-    },
-    {
-      title: "Pricing",
-      url: "#pricing",
-    },
-    {
-      title: "FAQ",
-      url: "#faq",
-    },
-  ],
-  mobileExtraLinks = [
-    { name: "Support", url: "#" },
-    { name: "Contact", url: "#" },
-    { name: "About", url: "#" },
-    { name: "Blog", url: "#" },
-  ],
-  auth = {
-    login: { text: "Sign In", url: "#" },
-    signup: { text: "Get Started", url: "#" },
-  },
+  logo,
+  menu,
+  mobileExtraLinks,
+  auth,
 }: Navbar1Props) => {
   return (
     <section className="py-4 bg-gray-900/95 backdrop-blur-sm border-b border-gray-800 sticky top-0 z-50">
@@ -213,7 +156,7 @@ const renderMenuItem = (item: MenuItem) => {
     return (
       <NavigationMenuItem key={item.title} className="text-gray-300">
         <NavigationMenuTrigger className="text-gray-300 hover:text-white bg-transparent hover:bg-gray-800">{item.title}</NavigationMenuTrigger>
-        <NavigationMenuContent>
+        <NavigationMenuContent className="bg-gray-900 border border-gray-800">
           <ul className="w-80 p-3">
             <NavigationMenuLink>
               {item.items.map((subItem) => (

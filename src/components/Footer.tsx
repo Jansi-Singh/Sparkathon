@@ -1,6 +1,3 @@
-
-import { ShoppingCart, User, Layout } from "lucide-react";
-
 const Footer = () => {
   return (
     <footer className="bg-gray-950 border-t border-gray-800">
