@@ -64,8 +64,8 @@ const Navbar = () => {
   ];
 
   const auth = {
-    login: { text: "Sign In", url: "#" },
-    signup: { text: "Get Started", url: "#" },
+    login: { text: "Sign In", url: "/signin" },
+    signup: { text: "Get Started", url: "/signup" },
   };
 
   return <Navbar1 logo={logo} menu={menu} mobileExtraLinks={mobileExtraLinks} auth={auth} />;
