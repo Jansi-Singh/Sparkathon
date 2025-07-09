@@ -27,6 +27,20 @@ const Index = () => {
       <Footer />
     </div>
   );
+  const Index = () => {
+    return (
+      <div className="min-h-screen">
+        <Navbar />
+        <HeroSection />
+        <FeaturesGrid />
+        <StatsSection />
+        <CTASection />
+      </div>
+    );
+  };
 };
 
 export default Index;
+
+
+;
